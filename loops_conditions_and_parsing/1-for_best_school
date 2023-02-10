@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
-for number in range(10):
-	print("Best School")
+for number in range(10)
+do
+	echo"Best School"
+done
