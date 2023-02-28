@@ -1,13 +1,23 @@
 #!/usr/bin/python3
 
-from sys import argv
-if __name__ == "__main__":
-    if len(argv) == 1:
+import argparse
+
+def main(args):
+    if len(args) == 0:
         print("0 arguments.")
-    elif len(argv) == 2:
+    elif len(args) == 1:
         print("1 argument:")
-        print("1: {}".format(argv[1]))
+        print(f"1: {args[0]}")
     else:
-        print("{} arguments:".format(len(argv) - 1))
-        for i in range(1, len(argv)):
-            print("{}: {}".format(i, argv[i]))
+        print(f"{len(args)} arguments:")
+        for i, arg in enumerate(args):
+            print(f"{i+1}: {arg}")
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Command-line argument parser")
+    parser.add_argument("args", nargs="*", help="arguments to parse")
+    try:
+        args = parser.parse_args()
+        main(args.args)
+    except Exception as e:
+        print(f"Error: {e}")
