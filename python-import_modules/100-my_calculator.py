@@ -12,7 +12,7 @@ if __name__ == "__main__":
 
     if op == "+":
         result = add(a, b)
-    elif op == "-":
+    elif op == "-i":
         result = sub(a, b)
     elif op == "*":
         result = mul(a, b)
@@ -21,3 +21,4 @@ if __name__ == "__main__":
     else:
         print("Unknown operator. Available operators: +, -, * and /")
         sys.exit(1)
+    print("{} {} {} = {}".format(a, op, b, result))
