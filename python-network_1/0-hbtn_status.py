@@ -1,3 +1,12 @@
-#!/bin/bash
-# Bash script that makes a request to 0.0.0.0:5000/catch_me that causes the server to respond with a message containing You got me!, in the body of the response.
-curl -sL 0.0.0.0:5000/catch_me -X PUT -H "Origin:HolbertonSchool" -d "user_id=98"
+#!/usr/bin/python3
+""" Python script that fetches https://alu-intranet.hbtn.io/status"""
+import urllib.request
+
+
+if __name__ == "__main__":
+    with urllib.request.urlopen('https://intranet.hbtn.io/status') as response:
+        html = response.read()
+        print('Body response:')
+        print('\t- type: {}'.format(type(html)))
+        print('\t- content: {}'.format(html))
+        print('\t- utf8 content: {}'.format(html.decode("utf-8")))
