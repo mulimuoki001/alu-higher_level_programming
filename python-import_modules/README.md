@@ -1,1 +1,0 @@
-Tough times ahead
